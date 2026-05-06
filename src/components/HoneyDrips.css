@@ -1,0 +1,70 @@
+.honey-drips-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.honey-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(180deg, #d4891a 0%, #f5c842 60%, #fde68a 100%);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(180, 120, 30, 0.3);
+}
+
+.honey-drip {
+  position: absolute;
+  top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drip-body {
+  background: linear-gradient(180deg, #e6a817 0%, #f5c842 100%);
+  border-radius: 0 0 50% 50%;
+  animation: drip-fall 3s ease-in-out infinite;
+  transform-origin: top center;
+  opacity: 0.9;
+}
+
+.drip-drop {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 40% 35%, #fde68a, #e6a817);
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  animation: drop-fall 3s ease-in-out infinite;
+  margin-top: -4px;
+}
+
+.honey-drip:nth-child(2)  .drip-body { width: 18px; animation-duration: 3.2s; height: 55px; }
+.honey-drip:nth-child(3)  .drip-body { width: 14px; animation-duration: 2.8s; height: 40px; }
+.honey-drip:nth-child(4)  .drip-body { width: 20px; animation-duration: 3.5s; height: 70px; }
+.honey-drip:nth-child(5)  .drip-body { width: 16px; animation-duration: 3.1s; height: 50px; }
+.honey-drip:nth-child(6)  .drip-body { width: 22px; animation-duration: 2.9s; height: 65px; }
+.honey-drip:nth-child(7)  .drip-body { width: 15px; animation-duration: 3.3s; height: 45px; }
+.honey-drip:nth-child(8)  .drip-body { width: 19px; animation-duration: 3.6s; height: 60px; }
+.honey-drip:nth-child(9)  .drip-body { width: 13px; animation-duration: 2.7s; height: 38px; }
+.honey-drip:nth-child(10) .drip-body { width: 17px; animation-duration: 3.4s; height: 52px; }
+
+@keyframes drip-fall {
+  0%   { transform: scaleY(0.3); opacity: 0.3; }
+  30%  { transform: scaleY(0.7); opacity: 0.9; }
+  70%  { transform: scaleY(1); opacity: 1; }
+  85%  { transform: scaleY(1.05); opacity: 0.8; }
+  100% { transform: scaleY(0.3); opacity: 0.3; }
+}
+
+@keyframes drop-fall {
+  0%, 70%  { opacity: 0; transform: rotate(45deg) translateY(0); }
+  75%  { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translateY(20px); }
+}

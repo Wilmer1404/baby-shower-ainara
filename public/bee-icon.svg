@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Wings -->
+  <ellipse cx="18" cy="22" rx="13" ry="7" fill="rgba(200,230,255,0.8)" stroke="rgba(150,180,220,0.6)" stroke-width="0.5"/>
+  <ellipse cx="46" cy="22" rx="13" ry="7" fill="rgba(200,230,255,0.8)" stroke="rgba(150,180,220,0.6)" stroke-width="0.5"/>
+  <!-- Body -->
+  <ellipse cx="32" cy="36" rx="11" ry="15" fill="#f5c842"/>
+  <rect x="21" y="30" width="22" height="4.5" rx="2" fill="#3d2b1f" opacity="0.75"/>
+  <rect x="21" y="38.5" width="22" height="4.5" rx="2" fill="#3d2b1f" opacity="0.75"/>
+  <!-- Head -->
+  <ellipse cx="32" cy="21" rx="9" ry="8" fill="#f5c842"/>
+  <circle cx="29" cy="20" r="1.8" fill="#3d2b1f"/>
+  <circle cx="35" cy="20" r="1.8" fill="#3d2b1f"/>
+  <path d="M28 23 Q32 26 36 23" stroke="#3d2b1f" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <!-- Stinger -->
+  <path d="M32 51 L29 55 L32 57 L35 55 Z" fill="#6b4c2a"/>
+</svg>

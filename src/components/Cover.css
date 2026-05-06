@@ -1,0 +1,334 @@
+/* =========================================
+   COVER SCREEN
+   ========================================= */
+.cover-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    175deg,
+    #fff8e1 0%,
+    #fdf3c8 30%,
+    #fde9a0 60%,
+    #fdf3c8 80%,
+    #fff8e1 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  overflow: hidden;
+  min-height: 100dvh;
+}
+
+/* ---- Decorative hexagons ---- */
+.hex-deco {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,200,66,0.15), transparent 70%);
+  pointer-events: none;
+}
+.hex-deco-1 { width: 200px; height: 200px; top: 10%; left: -60px; }
+.hex-deco-2 { width: 160px; height: 160px; top: 40%; right: -50px; }
+.hex-deco-3 { width: 240px; height: 240px; bottom: 5%; left: -80px; }
+
+/* ---- Sparkles ---- */
+.sparkle {
+  position: absolute;
+  font-size: 1rem;
+  color: var(--honey-gold);
+  opacity: 0;
+  pointer-events: none;
+}
+.s1 { top: 30%; left: 12%; animation: sparkle 3.5s ease-in-out infinite 0s; }
+.s2 { top: 50%; right: 10%; animation: sparkle 3.5s ease-in-out infinite 1.2s; }
+.s3 { top: 70%; left: 20%; animation: sparkle 3.5s ease-in-out infinite 2.4s; }
+.s4 { top: 85%; right: 18%; animation: sparkle 3.5s ease-in-out infinite 0.6s; }
+
+/* =========================================
+   COVER CONTENT
+   ========================================= */
+.cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 100px 24px 40px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 20;
+}
+
+/* ---- Title Section ---- */
+.cover-title-section {
+  text-align: center;
+}
+
+.cover-ribbon {
+  display: inline-block;
+  background: linear-gradient(135deg, #c8a04a, #e6c560, #c8a04a);
+  padding: 10px 36px 10px 32px;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 12px rgba(180, 120, 30, 0.35);
+}
+
+.cover-ribbon::before,
+.cover-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  background: inherit;
+}
+
+.cover-ribbon::before {
+  left: -8px;
+  clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%);
+}
+
+.cover-ribbon::after {
+  right: -8px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
+}
+
+.ribbon-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.cover-main-title {
+  font-family: var(--font-body);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--brown-medium);
+  line-height: 1.1;
+}
+
+.cover-title-highlight {
+  color: var(--honey-amber);
+}
+
+/* =========================================
+   ENVELOPE
+   ========================================= */
+.envelope-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.envelope {
+  position: relative;
+  width: 260px;
+  height: 175px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--transition-smooth);
+}
+
+.env-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* --- Envelope back (full rectangle) --- */
+.env-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #f5c842 0%, #e6a817 60%, #d4891a 100%);
+  border-radius: 8px 8px 12px 12px;
+  box-shadow: var(--shadow-medium), inset 0 1px 0 rgba(255,255,255,0.25);
+  overflow: hidden;
+}
+
+.env-back::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+/* --- Flap (top triangle) --- */
+.env-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  z-index: 10;
+  transform-origin: top center;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  perspective: 600px;
+}
+
+.env-flap-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #fde68a 0%, #f5c842 60%, #e6a817 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 80%);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 8px rgba(180,120,30,0.2);
+}
+
+.env-flap.open {
+  transform: rotateX(-175deg);
+}
+
+/* --- Fold lines --- */
+.env-left-fold,
+.env-right-fold {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 50%;
+  pointer-events: none;
+}
+
+.env-left-fold {
+  left: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(180,100,10,0.12) 100%);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.env-right-fold {
+  right: 0;
+  background: linear-gradient(225deg, transparent 0%, rgba(180,100,10,0.12) 100%);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+/* --- Envelope front (visible face) --- */
+.env-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 22px;
+  gap: 8px;
+  z-index: 5;
+}
+
+.env-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 3px 8px rgba(180,120,30,0.35));
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.env-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(61, 43, 31, 0.85);
+  padding: 8px 20px;
+  border-radius: 24px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  z-index: 10;
+  position: relative;
+  bottom: -2px;
+}
+
+.env-bee-icon {
+  font-size: 1.1rem;
+}
+
+.env-cta-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--honey-gold);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* --- Glow & sparkles --- */
+.envelope-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 24px;
+  background: radial-gradient(ellipse, rgba(245,200,66,0.25) 0%, transparent 70%);
+  animation: pulse-glow 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.env-sparkle {
+  position: absolute;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.env-sparkle-1 { top: -15px; left: -10px; animation: sparkle 2.5s ease-in-out infinite 0s; }
+.env-sparkle-2 { top: 10px; right: -15px; animation: sparkle 2.5s ease-in-out infinite 0.8s; }
+.env-sparkle-3 { bottom: -10px; left: 20px; animation: sparkle 2.5s ease-in-out infinite 1.6s; }
+
+/* =========================================
+   SUBTITLE & HINT
+   ========================================= */
+.cover-subtitle-section {
+  text-align: center;
+}
+
+.cover-tap-hint {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--brown-soft);
+  font-weight: 600;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.hint-arrow {
+  animation: floatSlow 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* =========================================
+   HONEY POOL BOTTOM
+   ========================================= */
+.honey-pool-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(180deg, transparent 0%, rgba(245,200,66,0.2) 100%);
+  pointer-events: none;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-height: 680px) {
+  .cover-content {
+    gap: 18px;
+    padding-top: 80px;
+  }
+  .envelope {
+    width: 230px;
+    height: 155px;
+  }
+}
