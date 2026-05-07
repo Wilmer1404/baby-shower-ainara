@@ -18,7 +18,7 @@ const waUrl = (phone) => {
 };
 
 const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Local+Liberal+Calle+Tumbes+Sinchi+Roca';
+  'https://maps.app.goo.gl/tfBK2zZ18QssdBkH9?g_st=aw';
 
 /* ---- Section fade-in variant ---- */
 const sectionVariant = {
@@ -199,7 +199,7 @@ const Invitation = () => {
           <div className="map-container">
             <iframe
               title="Ubicación Local Liberal"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.5!2d-80.6282!3d-5.1945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9035116f70000001%3A0x1!2sCalle+Tumbes+Piura+Peru!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.175280353121!2d-80.7445565!3d-5.4024722999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a2135ef414ac9%3A0xa1c661242be95ee7!2sJr.%20Sinchi%20Roca%20%26%20Calle%20Tumbes%2C%20La%20Uni%C3%B3n%2020621!5e1!3m2!1ses!2spe!4v1778196166083!5m2!1ses!2spe"
               width="100%"
               height="200"
               style={{ border: 0 }}
