@@ -239,16 +239,18 @@ const Invitation = () => {
         {/* ================================================= */}
         <Section className="sec-ultrasound">
           <p className="ultrasound-label">Ya puedes ver mi carita 🥺</p>
-          <div className="ultrasound-frame">
-            <img
-              src="/ultrasound.jpg"
-              alt="Ecografía de Ainara Anthonella"
-              className="ultrasound-img"
-              loading="lazy"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-            <div className="ultrasound-overlay" aria-hidden="true">
-              <span>💛</span>
+          <div className="ultrasound-wrapper">
+            <div className="ultrasound-frame">
+              <img
+                src="/ultrasound.jpg"
+                alt="Ecografía de Ainara Anthonella"
+                className="ultrasound-img"
+                loading="lazy"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+              <div className="ultrasound-overlay" aria-hidden="true">
+                <span>Ainara Anthonella 💛</span>
+              </div>
             </div>
           </div>
         </Section>
