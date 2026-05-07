@@ -7,8 +7,8 @@ import './Invitation.css';
 const BABY_NAME   = 'Ainara Anthonella';
 const MAMA_NAME   = 'Marian Purizaca Valdiviezo';
 const PAPA_NAME   = 'Juan José Ancajima Huiman';
-const MAMA_PHONE  = '51900000001'; // ← reemplaza con el número real de mamá
-const PAPA_PHONE  = '51900000002'; // ← reemplaza con el número real de papá
+const MAMA_PHONE  = '51974536268'; // ← reemplaza con el número real de mamá
+const PAPA_PHONE  = '51974536268'; // ← reemplaza con el número real de papá
 
 const waUrl = (phone) => {
   const msg = encodeURIComponent(
