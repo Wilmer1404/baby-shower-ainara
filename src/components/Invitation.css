@@ -28,6 +28,43 @@
   z-index: 5;
   box-shadow: 0 0 60px rgba(180, 120, 30, 0.2);
   padding-bottom: 40px;
+  overflow: hidden; /* For blobs */
+}
+
+/* Organic blobs */
+.blob {
+  position: absolute;
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0.6;
+  border-radius: 50%;
+  animation: floatSlow 8s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(245, 200, 66, 0.2);
+  top: -50px;
+  left: -100px;
+}
+
+.blob-2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(212, 137, 26, 0.15);
+  top: 40%;
+  right: -80px;
+  animation-delay: 2s;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: rgba(253, 233, 160, 0.3);
+  bottom: 10%;
+  left: -150px;
+  animation-delay: 4s;
 }
 
 /* =========================================
@@ -564,11 +601,37 @@
 /* =========================================
    SEPARATOR
    ========================================= */
-.honey-sep {
+/* =========================================
+   SEPARATOR (WAVE)
+   ========================================= */
+.wave-sep {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin: 20px 0;
+  overflow: hidden;
   display: flex;
   justify-content: center;
-  padding: 4px 0;
-  opacity: 0.8;
+  align-items: center;
+}
+
+.wave-sep svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wave-bee {
+  font-size: 1.2rem;
+  z-index: 2;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+  background: #fff8e1;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(180, 120, 30, 0.15);
 }
 
 /* =========================================

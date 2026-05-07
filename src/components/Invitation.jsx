@@ -7,12 +7,12 @@ import './Invitation.css';
 const BABY_NAME   = 'Ainara Anthonella';
 const MAMA_NAME   = 'Marian Purizaca Valdiviezo';
 const PAPA_NAME   = 'Juan José Ancajima Huiman';
-const MAMA_PHONE  = '51974536268'; // ← reemplaza con el número real de mamá
-const PAPA_PHONE  = '51974536268'; // ← reemplaza con el número real de papá
+const MAMA_PHONE  = '51974536268'; 
+const PAPA_PHONE  = '51974536268'; 
 
 const waUrl = (phone) => {
   const msg = encodeURIComponent(
-    `¡Hola! Quiero confirmar mi asistencia al Baby Shower de ${BABY_NAME} 🐝🍯\nSábado 16 de Mayo 2026, 18:00 HRS\nLocal Liberal - Calle Tumbes con Sinchi Roca.\n¡Nos vemos ahí! 🎀`
+    `Hola, confirmo mi asistencia al Baby Shower de ${BABY_NAME} 🐝✨`
   );
   return `https://wa.me/${phone}?text=${msg}`;
 };
@@ -26,14 +26,16 @@ const sectionVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
 };
 
-/* ---- Honeycomb SVG divider ---- */
-const HoneySeparator = () => (
-  <div className="honey-sep" aria-hidden="true">
-    <svg viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="20">
-      <line x1="0" y1="10" x2="38" y2="10" stroke="#e6a817" strokeWidth="1.5" strokeDasharray="3 2" />
-      <text x="45" y="15" fontSize="14" fill="#f5c842">🐝</text>
-      <line x1="78" y1="10" x2="120" y2="10" stroke="#e6a817" strokeWidth="1.5" strokeDasharray="3 2" />
+/* ---- Wave SVG divider ---- */
+const WaveSeparator = () => (
+  <div className="wave-sep" aria-hidden="true">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" width="100%" height="40">
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        fill="rgba(245,200,66,0.15)"
+      ></path>
     </svg>
+    <div className="wave-bee">🐝</div>
   </div>
 );
 
@@ -69,8 +71,13 @@ const Invitation = () => {
       {/* ===================== */}
       {/* CARD WRAPPER */}
       {/* ===================== */}
-      <div className="invitation-card">
-
+      <div className="invitation-card premium-card">
+        
+        {/* Organic Background Blobs */}
+        <div className="blob blob-1" aria-hidden="true"></div>
+        <div className="blob blob-2" aria-hidden="true"></div>
+        <div className="blob blob-3" aria-hidden="true"></div>
+        
         {/* ---- TOP HONEY BAR ---- */}
         <div className="inv-top-bar" aria-hidden="true">
           {[...Array(8)].map((_, i) => (
@@ -118,7 +125,7 @@ const Invitation = () => {
           </motion.div>
         </Section>
 
-        <HoneySeparator />
+        <WaveSeparator />
 
         {/* ================================================= */}
         {/* SECTION 2: PARENTS */}
@@ -147,7 +154,7 @@ const Invitation = () => {
           </div>
         </Section>
 
-        <HoneySeparator />
+        <WaveSeparator />
 
         {/* ================================================= */}
         {/* SECTION 3: DATE */}
@@ -172,7 +179,7 @@ const Invitation = () => {
           <Countdown targetDate="2026-05-16T18:00:00-05:00" />
         </Section>
 
-        <HoneySeparator />
+        <WaveSeparator />
 
         {/* ================================================= */}
         {/* SECTION 4: LOCATION */}
@@ -222,7 +229,7 @@ const Invitation = () => {
           </div>
         </Section>
 
-        <HoneySeparator />
+        <WaveSeparator />
 
         {/* ================================================= */}
         {/* SECTION 5: RSVP */}
@@ -246,7 +253,7 @@ const Invitation = () => {
           </div>
         </Section>
 
-        <HoneySeparator />
+        <WaveSeparator />
 
         <Section className="sec-rsvp">
           <div className="rsvp-icon-wrap">
@@ -284,8 +291,6 @@ const Invitation = () => {
             </a>
           </div>
         </Section>
-
-        <HoneySeparator />
 
         {/* ================================================= */}
         {/* SECTION 6: CLOSING */}
