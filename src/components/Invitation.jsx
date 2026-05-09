@@ -8,7 +8,7 @@ const BABY_NAME   = 'Ainara Anthonella';
 const MAMA_NAME   = 'Marian Purizaca Valdiviezo';
 const PAPA_NAME   = 'Juan José Ancajima Huiman';
 const MAMA_PHONE  = '51974536268'; 
-const PAPA_PHONE  = '51974536268'; 
+const PAPA_PHONE  = '51932311672'; 
 
 const waUrl = (phone) => {
   const msg = encodeURIComponent(
