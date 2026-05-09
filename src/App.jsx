@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Cover from './components/Cover';
 import Invitation from './components/Invitation';
@@ -6,9 +6,19 @@ import './App.css';
 
 function App() {
   const [showInvitation, setShowInvitation] = useState(false);
+  const audioRef = useRef(null);
 
   const handleOpen = () => {
     setShowInvitation(true);
+    
+    // Play the background music
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5; // Set volume to 50%
+      audioRef.current.play().catch(error => {
+        console.log("Autoplay prevented by browser:", error);
+      });
+    }
+
     // Scroll to top when invitation opens
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
   };
@@ -29,6 +39,14 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Global Background Audio */}
+      <audio 
+        ref={audioRef} 
+        src="/music/background-music.mp4" 
+        loop 
+        autoPlay={false}
+      />
     </div>
   );
 }
